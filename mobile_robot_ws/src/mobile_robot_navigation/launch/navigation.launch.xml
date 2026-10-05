@@ -1,0 +1,24 @@
+<launch>
+  <arg name="map"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="params_file" default="$(find-pkg-share mobile_robot_navigation)/config/nav2.yaml"/>
+  <!-- Our own core-server list avoids unrelated docking/route-server setup. -->
+  <node pkg="nav2_map_server" exec="map_server" name="map_server" output="screen">
+    <param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/><param name="yaml_filename" value="$(var map)"/>
+  </node>
+  <node pkg="nav2_amcl" exec="amcl" name="amcl" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/></node>
+  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_localization" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/><param name="autostart" value="true"/><param name="node_names" value="['map_server', 'amcl']"/>
+  </node>
+  <node pkg="nav2_controller" exec="controller_server" name="controller_server" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/><remap from="cmd_vel" to="cmd_vel_nav"/></node>
+  <node pkg="nav2_planner" exec="planner_server" name="planner_server" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/></node>
+  <node pkg="nav2_smoother" exec="smoother_server" name="smoother_server" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/></node>
+  <node pkg="nav2_behaviors" exec="behavior_server" name="behavior_server" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/><remap from="cmd_vel" to="cmd_vel_nav"/></node>
+  <node pkg="nav2_bt_navigator" exec="bt_navigator" name="bt_navigator" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/></node>
+  <node pkg="nav2_velocity_smoother" exec="velocity_smoother" name="velocity_smoother" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/><remap from="cmd_vel" to="cmd_vel_nav"/></node>
+  <node pkg="nav2_collision_monitor" exec="collision_monitor" name="collision_monitor" output="screen"><param from="$(var params_file)" allow_substs="true"/><param name="use_sim_time" value="$(var use_sim_time)"/></node>
+  <node pkg="nav2_lifecycle_manager" exec="lifecycle_manager" name="lifecycle_manager_navigation" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/><param name="autostart" value="true"/>
+    <param name="node_names" value="['controller_server', 'planner_server', 'smoother_server', 'behavior_server', 'bt_navigator', 'velocity_smoother', 'collision_monitor']"/>
+  </node>
+</launch>

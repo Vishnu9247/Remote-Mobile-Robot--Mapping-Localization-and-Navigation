@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find-pkg-share mobile_robot_bringup)/launch/simulation.launch.xml"/>
+  <include file="$(find-pkg-share mobile_robot_localization)/launch/slam.launch.xml"/>
+</launch>

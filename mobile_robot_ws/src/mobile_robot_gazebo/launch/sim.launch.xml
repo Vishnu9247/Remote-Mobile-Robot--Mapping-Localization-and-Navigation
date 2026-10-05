@@ -1,0 +1,18 @@
+<launch>
+  <arg name="world" default="$(find-pkg-share mobile_robot_gazebo)/worlds/learning_room.sdf"/>
+  <arg name="gz_args" default="-r &quot;$(var world)&quot;"/>
+  <set_env name="GZ_SIM_RESOURCE_PATH" value="$(find-pkg-share mobile_robot_description)/..:$(env GZ_SIM_RESOURCE_PATH '')"/>
+  <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py"><arg name="gz_args" value="$(var gz_args)"/></include>
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+    <param name="use_sim_time" value="true"/>
+    <param name="robot_description" type="str" value="$(command 'xacro &quot;$(find-pkg-share mobile_robot_description)/urdf/robot.urdf.xacro&quot; simulation:=true')"/>
+  </node>
+  <node pkg="ros_gz_sim" exec="create" args="-name mobile_robot -topic /robot_description -z 0.01" output="screen"/>
+  <node pkg="ros_gz_bridge" exec="parameter_bridge" name="gazebo_bridge">
+    <param name="config_file" value="$(find-pkg-share mobile_robot_gazebo)/config/bridge.yaml"/>
+    <param name="use_sim_time" value="true"/>
+  </node>
+  <!-- Spawners wait for the simulator's controller manager; no fixed startup sleep. -->
+  <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster --controller-manager-timeout 120" output="screen"/>
+  <node pkg="controller_manager" exec="spawner" args="diff_drive_controller --controller-manager-timeout 120" output="screen"/>
+</launch>

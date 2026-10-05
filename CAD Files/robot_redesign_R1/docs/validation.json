@@ -1,0 +1,229 @@
+{
+  "parameters": {
+    "wheel_radius": 60.0,
+    "axle_z": 60.0,
+    "axle_x": 95.0,
+    "servo_face_y": 100.0,
+    "deck_z": 86.0,
+    "deck_t": 6.0,
+    "M3_clear": 3.4,
+    "M4_clear": 4.5,
+    "horn_PCD": 14.0,
+    "body_side_clearance": 0.34
+  },
+  "parts": {
+    "P03_servo_cradle": {
+      "quantity": 4,
+      "material": "PETG",
+      "print_size_mm": [
+        68.0,
+        64.4,
+        40.2
+      ],
+      "volume_mm3": 60978.88
+    },
+    "P04_servo_clamp_cap": {
+      "quantity": 4,
+      "material": "PETG",
+      "print_size_mm": [
+        46.0,
+        33.0,
+        5.0
+      ],
+      "volume_mm3": 7408.42
+    },
+    "P05_servo_shim": {
+      "quantity": 8,
+      "material": "TPU",
+      "print_size_mm": [
+        24.6,
+        30.0,
+        0.25
+      ],
+      "volume_mm3": 184.5
+    },
+    "P01_deck_front": {
+      "quantity": 1,
+      "material": "PETG",
+      "print_size_mm": [
+        149.86,
+        200.01,
+        14.01
+      ],
+      "volume_mm3": 188508.17
+    },
+    "P02_deck_rear": {
+      "quantity": 1,
+      "material": "PETG",
+      "print_size_mm": [
+        149.86,
+        200.01,
+        14.01
+      ],
+      "volume_mm3": 188508.17
+    },
+    "P06_chassis_splice": {
+      "quantity": 3,
+      "material": "PETG",
+      "print_size_mm": [
+        70.0,
+        22.0,
+        6.0
+      ],
+      "volume_mm3": 8843.47
+    },
+    "P07_horn_adapter": {
+      "quantity": 4,
+      "material": "PETG",
+      "print_size_mm": [
+        40.03,
+        40.03,
+        6.03
+      ],
+      "volume_mm3": 6414.47
+    },
+    "P08_wheel_rim": {
+      "quantity": 4,
+      "material": "PETG",
+      "print_size_mm": [
+        114.07,
+        115.0,
+        24.07
+      ],
+      "volume_mm3": 65685.05
+    },
+    "P09_TPU_tyre": {
+      "quantity": 4,
+      "material": "TPU 95A",
+      "print_size_mm": [
+        120.05,
+        120.05,
+        20.08
+      ],
+      "volume_mm3": 26710.14
+    },
+    "P10_sensor_platform": {
+      "quantity": 1,
+      "material": "PETG",
+      "print_size_mm": [
+        120.0,
+        100.0,
+        5.0
+      ],
+      "volume_mm3": 55862.46
+    },
+    "P11_platform_spacer": {
+      "quantity": 4,
+      "material": "PETG",
+      "print_size_mm": [
+        12.01,
+        12.01,
+        50.01
+      ],
+      "volume_mm3": 5200.91
+    },
+    "P12_fastener_fit_coupon": {
+      "quantity": 1,
+      "material": "PETG",
+      "print_size_mm": [
+        80.0,
+        25.0,
+        6.0
+      ],
+      "volume_mm3": 11111.25
+    }
+  },
+  "assembly_instances": 46,
+  "status": "Engineering prototype R1; not production-released",
+  "manufacturer_model_used": true,
+  "hardware_note": "Nominal unthreaded bolts, nuts and washers included; OEM centre retaining screws not modeled. Fastener threads and supplier spline interface excluded from volume checks.",
+  "servo_envelope_fit_mm3": {
+    "cradle": 0.0,
+    "cap": 0.0,
+    "lower_shim": 0.0,
+    "upper_shim": 0.0
+  },
+  "interference": {
+    "bbox_candidate_pairs_checked": 20,
+    "threshold_mm3": 0.05,
+    "overlaps": []
+  },
+  "stl_checks": {
+    "P01_deck_front.stl": {
+      "triangles": 16788,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 188512.509
+    },
+    "P02_deck_rear.stl": {
+      "triangles": 16788,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 188512.508
+    },
+    "P03_servo_cradle.stl": {
+      "triangles": 5576,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 60980.254
+    },
+    "P04_servo_clamp_cap.stl": {
+      "triangles": 1372,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 7408.585
+    },
+    "P05_servo_shim.stl": {
+      "triangles": 12,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 184.5
+    },
+    "P06_chassis_splice.stl": {
+      "triangles": 740,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 8843.551
+    },
+    "P07_horn_adapter.stl": {
+      "triangles": 3824,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 6408.19
+    },
+    "P08_wheel_rim.stl": {
+      "triangles": 5224,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 65668.666
+    },
+    "P09_TPU_tyre.stl": {
+      "triangles": 1056,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 26755.128
+    },
+    "P10_sensor_platform.stl": {
+      "triangles": 4852,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 55863.05
+    },
+    "P11_platform_spacer.stl": {
+      "triangles": 672,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 5196.058
+    },
+    "P12_fastener_fit_coupon.stl": {
+      "triangles": 2148,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "volume_mm3": 11111.667
+    }
+  },
+  "assembly_step_reimport": {
+    "valid": true,
+    "solids": 324
+  }
+}

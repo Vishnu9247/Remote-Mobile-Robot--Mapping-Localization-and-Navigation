@@ -1,0 +1,22 @@
+HX-30HM MOBILE BASE R1 - ENGINEERING PROTOTYPE
+
+1. Read docs/HX30HM_R1_Build_Guide.pdf.
+2. Open STEP/ASSEMBLY_HX30HM_R1.step in Fusion or another STEP-capable CAD app.
+3. Individual printed parts are in STEP/ and bed-oriented print meshes in STL/.
+4. Manufacturer servo/horn STEP references are in reference/.
+5. source/build_robot.py reproduces the parts and assembly using CadQuery 2.x.
+   Dimensions are editable in this script. nominal_dimensions.json is a summary.
+6. docs/validation.json contains solid, fit, assembly reimport and STL checks.
+
+Print P12 first, then one P03/P04/P07 servo fit set and shims. Confirm actual
+horn revision, bolt circle, threads, screw depth and housing fit before
+printing the full set. Follow the guide for material, quantities and hardware.
+
+The 3 kg figure is a total-mass design target, not a proven rating. The package
+has not been physically printed or load-tested. Production release is pending
+fit testing, printed-joint qualification and confirmation of servo radial loads.
+
+Assembly includes nominal unthreaded standard fasteners. OEM horn centre
+retaining screws are required and specified but not modeled. Sensor-specific
+mounts, electronics and battery are not included: mounting grids and straps
+are provided for those later selections. No native Fusion motion joints are set.

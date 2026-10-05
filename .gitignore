@@ -1,0 +1,9 @@
+mobile_robot_ws/build/
+mobile_robot_ws/install/
+mobile_robot_ws/log/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.validation-deps/
+maps/

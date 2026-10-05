@@ -1,0 +1,9 @@
+*.py text eol=lf
+*.xml text eol=lf
+*.xacro text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.stl binary
+*.step binary
+*.stp binary

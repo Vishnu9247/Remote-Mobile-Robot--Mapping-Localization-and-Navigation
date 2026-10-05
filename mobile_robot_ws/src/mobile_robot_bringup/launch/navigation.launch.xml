@@ -1,0 +1,5 @@
+<launch>
+  <arg name="map"/>
+  <include file="$(find-pkg-share mobile_robot_bringup)/launch/simulation.launch.xml"/>
+  <include file="$(find-pkg-share mobile_robot_navigation)/launch/navigation.launch.xml"><arg name="map" value="$(var map)"/></include>
+</launch>

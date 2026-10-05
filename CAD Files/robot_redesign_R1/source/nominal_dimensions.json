@@ -1,0 +1,12 @@
+{
+  "wheel_radius": 60.0,
+  "axle_z": 60.0,
+  "axle_x": 95.0,
+  "servo_face_y": 100.0,
+  "deck_z": 86.0,
+  "deck_t": 6.0,
+  "M3_clear": 3.4,
+  "M4_clear": 4.5,
+  "horn_PCD": 14.0,
+  "body_side_clearance": 0.34
+}

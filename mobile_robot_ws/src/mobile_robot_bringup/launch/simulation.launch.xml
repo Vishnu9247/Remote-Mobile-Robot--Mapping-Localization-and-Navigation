@@ -1,0 +1,9 @@
+<launch>
+  <arg name="rviz" default="true"/>
+  <arg name="odom_topic" default="/wheel/odom"/>
+  <arg name="gz_args" default="-r &quot;$(find-pkg-share mobile_robot_gazebo)/worlds/learning_room.sdf&quot;"/>
+  <include file="$(find-pkg-share mobile_robot_gazebo)/launch/sim.launch.xml"><arg name="gz_args" value="$(var gz_args)"/></include>
+  <include file="$(find-pkg-share mobile_robot_control)/launch/control.launch.xml"/>
+  <include file="$(find-pkg-share mobile_robot_localization)/launch/ekf.launch.xml"><arg name="odom_topic" value="$(var odom_topic)"/></include>
+  <node if="$(var rviz)" pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share mobile_robot_description)/rviz/robot.rviz -f odom"><param name="use_sim_time" value="true"/></node>
+</launch>
