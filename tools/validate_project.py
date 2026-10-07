@@ -87,6 +87,15 @@ def main():
     for folder in SRC.iterdir():
         package = ET.parse(folder / 'package.xml').getroot()
         assert package.findtext('name') == folder.name
+        cmake = folder / 'CMakeLists.txt'
+        if cmake.exists():
+            # Git omits empty folders; every installed directory needs content.
+            installs = re.findall(r'install\(DIRECTORY\s+(.*?)\s+DESTINATION', cmake.read_text(), re.DOTALL)
+            for directories in installs:
+                for directory in directories.split():
+                    target = folder / directory
+                    assert target.is_dir(), f'Missing CMake install directory: {target}'
+                    assert any(path.is_file() for path in target.rglob('*')), f'Empty CMake install directory: {target}'
     print('PASS:', counts, '; both Xacro modes, TF tree, wheel interfaces, geometry and footprint')
     print('This is static validation, not a ROS launch or Gazebo physics test.')
 

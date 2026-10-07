@@ -11,6 +11,8 @@ ROS 2 Jazzy, Gazebo Harmonic. No ROS/Gazebo runtime was available on this host.
   valid/invalid mission goal inputs.
 - Python source syntax checked with AST parsing.
 - XML package/launch/world documents parsed, and local package paths checked.
+- CMake install directories checked for files so builds do not depend on empty
+  directories that Git omits from clones.
 - All YAML and RViz configurations parsed with PyYAML.
 - Xacro expanded in display and simulation modes using Xacro 2.1.1. On Windows,
   only package-share discovery was substituted with local source paths; the

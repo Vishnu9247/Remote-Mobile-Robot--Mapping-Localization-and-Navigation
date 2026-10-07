@@ -60,9 +60,9 @@ setup(name=package_name, version='0.1.0', packages=[package_name],
 ''', encoding='utf-8')
         (folder / 'setup.cfg').write_text(f'[develop]\nscript_dir=$base/lib/{name}\n[install]\ninstall_scripts=$base/lib/{name}\n')
     else:
-        directories = {'description': 'launch config urdf meshes rviz',
+        directories = {'description': 'launch urdf meshes rviz',
                        'gazebo': 'launch config worlds',
-                       'localization': 'launch config', 'bringup': 'launch config'}[short]
+                       'localization': 'launch config', 'bringup': 'launch'}[short]
         for directory in directories.split():
             (folder / directory).mkdir(exist_ok=True)
         (folder / 'CMakeLists.txt').write_text(f'''cmake_minimum_required(VERSION 3.8)
